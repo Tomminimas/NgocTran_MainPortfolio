@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ngoc Tran • Welcome</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===================== TOKENS ===================== */
+        :root{
+            --color-bg: #0a0a0a;
+            --color-bg-variant: #1a1a1a;
+            --color-primary: #ffffff;
+            --color-primary-variant-mid: #d1d5db;
+            --color-primary-variant-light: #9ca3af;
+            --color-white: #fff;
+            --color-medium: hsla(0,0%,100%,.75);
+            --color-light: hsla(0,0%,100%,.6);
+            --color-gray-dark: #374151;
+            --color-gray-light: #6b7280;
+        }
+
+        /* ===================== CURSOR ANIMATIONS ===================== */
+        * { cursor: none !important; }
+        
+        .cursor-dot {
+            position: fixed; width: 8px; height: 8px; background: var(--color-primary);
+            border-radius: 50%; pointer-events: none; z-index: 9999;
+            mix-blend-mode: difference; transition: transform 0.05s ease;
+        }
+        .cursor-ring {
+            position: fixed; width: 32px; height: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 50%;
+            pointer-events: none; z-index: 9998; mix-blend-mode: difference;
+            transition: transform 0.08s ease, scale 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.1s ease;
+        }
+
+        /* ===================== ANIMATIONS ===================== */
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes scaleIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
+        @keyframes typewriter { from { width: 0; } to { width: 100%; } }
+        @keyframes blink { 0%, 50% { border-color: transparent; } 51%, 100% { border-color: var(--color-primary); } }
+        @keyframes slideInFromLeft { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes slideInFromRight { from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); } 50% { box-shadow: 0 0 40px rgba(255, 255, 255, 0.6); } }
+        @keyframes moveAcross { 0% { transform: translateX(-100px) translateY(100vh) rotate(45deg); } 100% { transform: translateX(100vw) translateY(-100px) rotate(405deg); } }
+        @keyframes floatIcon { 0% { transform: translateX(100vw) translateY(20vh) rotate(0deg); } 100% { transform: translateX(-50px) translateY(80vh) rotate(360deg); } }
+        @keyframes binaryFall { 0% { transform: translateY(-50px); opacity: 0; } 50% { opacity: 1; } 100% { transform: translateY(100vh); opacity: 0; } }
+        @keyframes starBlink { 0%, 50% { opacity: 0.2; transform: scale(0.8); } 25%, 75% { opacity: 1; transform: scale(1.2); } 100% { opacity: 0.2; transform: scale(0.8); } }
+        @keyframes twinkle { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+        
+        /* Boom Ring Animation */
+        @keyframes boomRing {
+            0% { transform: scale(0) rotate(0deg); opacity: 1; border-width: 20px; }
+            50% { transform: scale(1.5) rotate(180deg); opacity: 0.8; border-width: 10px; }
+            100% { transform: scale(3) rotate(360deg); opacity: 0; border-width: 2px; }
+        }
+        
+        
+        @keyframes chartFloat {
+            0% { transform: translateX(-100px) translateY(50vh) rotate(0deg); }
+            25% { transform: translateX(25vw) translateY(20vh) rotate(90deg); }
+            50% { transform: translateX(75vw) translateY(70vh) rotate(180deg); }
+            75% { transform: translateX(50vw) translateY(30vh) rotate(270deg); }
+            100% { transform: translateX(100vw) translateY(60vh) rotate(360deg); }
+        }
+
+        /* ===================== BASE STYLES ===================== */
+        *, *::before, *::after { box-sizing: border-box; }
+
+        html, body {
+            height: 100%; margin: 0; padding: 0; overflow-x: hidden;
+            font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            background: linear-gradient(180deg, #000000 0%, #0b244a 25%, #2b4877 50%, #5c76a9 75%, #a0bfe0 100%) fixed;
+        }
+
+        /* Pixel Animation Background */
+        .pixel-background {
+            position: fixed; inset: 0; z-index: 0;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, #ffffff, transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+                radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.6), transparent),
+                radial-gradient(1px 1px at 130px 80px, #ffffff, transparent),
+                radial-gradient(2px 2px at 160px 30px, rgba(255,255,255,0.7), transparent);
+            background-repeat: repeat;
+            background-size: 200px 100px;
+            animation: pixelMove 20s linear infinite;
+        }
+
+        @keyframes pixelMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-200px, -100px); }
+        }
+
+        /* ===================== BACKGROUND ANIMATIONS ===================== */
+        .animated-background {
+            position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 1;
+        }
+        
+        .floating-shape {
+            position: absolute; opacity: 0.3;
+            animation: moveAcross 25s linear infinite;
+        }
+        
+        .floating-icon {
+            position: absolute; font-size: 1.5rem; opacity: 0.15;
+            animation: floatIcon 35s linear infinite;
+        }
+        
+        .binary-rain {
+            position: absolute; color: var(--color-primary-variant-light); opacity: 0.15;
+            font-family: monospace; font-size: 0.75rem;
+            animation: binaryFall 3s linear infinite;
+        }
+
+        .star {
+            position: absolute; color: var(--color-white); font-size: 1rem;
+            animation: starBlink 2s ease-in-out infinite;
+        }
+
+        .star.twinkle {
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        .floating-star-circle {
+            position: absolute; width: 80px; height: 80px; border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            display: flex; align-items: center; justify-content: center;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-star-circle::before {
+            content: '✦'; font-size: 1.5rem; color: var(--color-white);
+            animation: starBlink 2s ease-in-out infinite;
+        }
+
+        /* Boom Ring */
+        .boom-ring {
+            position: fixed; top: 50%; left: 50%;
+            width: 100px; height: 100px; border-radius: 50%;
+            border: 20px solid rgba(255, 255, 255, 0.8);
+            transform: translate(-50%, -50%) scale(0);
+            z-index: 5; pointer-events: none;
+            animation: boomRing 2s ease-out 3s forwards;
+        }
+
+
+        /* Chart Icons */
+        .chart-icon {
+            position: absolute; font-size: 2rem; opacity: 0.7;
+            color: var(--color-white); z-index: 2;
+            animation: chartFloat 15s linear infinite;
+        }
+
+        /* ===================== MAIN LAYOUT ===================== */
+        .intro-container {
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
+            padding: 2rem; position: relative; z-index: 10;
+        }
+
+        .intro-content {
+            max-width: 800px; text-align: center; position: relative;
+        }
+
+        .greeting {
+            font-size: 1.2rem; color: var(--color-medium); margin-bottom: 1rem;
+            animation: slideInFromLeft 0.8s ease-out 0.5s both;
+        }
+
+        .name-container {
+            margin-bottom: 2rem; position: relative;
+        }
+
+        .name {
+            font-size: clamp(3rem, 8vw, 6rem); font-weight: 800; line-height: 1.1;
+            background: linear-gradient(135deg, var(--color-white), var(--color-primary-variant-light), var(--color-primary));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; margin-bottom: 0.5rem;
+            animation: scaleIn 1s ease-out 0.8s both;
+        }
+
+        .title {
+            font-size: 1.5rem; color: var(--color-primary-variant-mid);
+            font-weight: 600; margin-bottom: 2rem;
+            animation: slideInFromRight 0.8s ease-out 1.2s both;
+        }
+
+        .typewriter-container {
+            height: 60px; display: flex; align-items: center; justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .typewriter {
+            font-size: 1.1rem; color: var(--color-light);
+            border-right: 2px solid var(--color-primary);
+            white-space: nowrap; overflow: hidden;
+            animation: typewriter 3s steps(60) 1.8s both, blink 0.8s infinite 4.8s;
+        }
+
+
+        .cta-section {
+            margin-top: 3rem; opacity: 0;
+            animation: fadeInUp 0.8s ease-out 3s both;
+        }
+
+        .enter-btn {
+            display: inline-flex; align-items: center; gap: 12px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-primary-variant-mid));
+            color: #000000; padding: 16px 32px; border-radius: 50px;
+            font-weight: 700; font-size: 1.1rem; text-decoration: none;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); position: relative; overflow: hidden;
+        }
+
+        .enter-btn::before {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: translateX(-100%); transition: transform 0.6s;
+        }
+
+        .enter-btn:hover::before { transform: translateX(100%); }
+
+        .enter-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(255,255,255,.4);
+            border-color: rgba(255, 255, 255, 0.6);
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+
+        .enter-btn svg {
+            width: 20px; height: 20px; transition: transform 0.3s ease;
+        }
+
+        .enter-btn:hover svg {
+            transform: translateX(4px);
+        }
+
+        .scroll-hint {
+            position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+            color: var(--color-light); font-size: 0.9rem; opacity: 0;
+            animation: fadeInUp 0.8s ease-out 3.5s both, float 3s ease-in-out infinite 4s;
+        }
+
+        /* ===================== RESPONSIVE ===================== */
+        @media (max-width: 768px) {
+            .intro-content { padding: 1rem; }
+            .enter-btn { padding: 14px 24px; font-size: 1rem; }
+        }
+
+        @media (max-width: 480px) {
+            .greeting { font-size: 1rem; }
+            .title { font-size: 1.2rem; }
+            .typewriter { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Pixel Background -->
+    <div class="pixel-background"></div>
+    
+    <!-- Boom Ring Animation -->
+    <div class="boom-ring"></div>
+    
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
+    <!-- Animated Background -->
+    <div class="animated-background">
+        <!-- Blinking Stars -->
+        <div class="star" style="top: 15%; left: 20%; animation-delay: 0s;">✦</div>
+        <div class="star twinkle" style="top: 25%; right: 30%; animation-delay: 1s;">✧</div>
+        <div class="star" style="top: 40%; left: 15%; animation-delay: 2s;">⋆</div>
+        <div class="star twinkle" style="top: 60%; right: 25%; animation-delay: 0.5s;">✦</div>
+        <div class="star" style="top: 70%; left: 30%; animation-delay: 1.5s;">✧</div>
+        <div class="star twinkle" style="top: 35%; right: 15%; animation-delay: 2.5s;">⋆</div>
+        <div class="star" style="top: 80%; right: 40%; animation-delay: 3s;">✦</div>
+        <div class="star twinkle" style="top: 10%; left: 60%; animation-delay: 0.8s;">✧</div>
+        <div class="star" style="top: 50%; left: 70%; animation-delay: 1.8s;">⋆</div>
+        <div class="star twinkle" style="top: 85%; left: 50%; animation-delay: 2.2s;">✦</div>
+        
+        <!-- Binary Rain (now in gray) -->
+        <div class="binary-rain" style="left: 15%; animation-delay: 0s;">1</div>
+        <div class="binary-rain" style="left: 25%; animation-delay: 1s;">0</div>
+        <div class="binary-rain" style="left: 35%; animation-delay: 2s;">1</div>
+        <div class="binary-rain" style="left: 45%; animation-delay: 3s;">0</div>
+        <div class="binary-rain" style="left: 55%; animation-delay: 4s;">1</div>
+        <div class="binary-rain" style="left: 65%; animation-delay: 0.5s;">0</div>
+        <div class="binary-rain" style="left: 75%; animation-delay: 1.5s;">1</div>
+        <div class="binary-rain" style="left: 85%; animation-delay: 2.5s;">0</div>
+        
+        <!-- Floating Star Circles -->
+        <div class="floating-star-circle" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+        <div class="floating-star-circle" style="top: 60%; right: 15%; animation-delay: 2s;"></div>
+        <div class="floating-star-circle" style="bottom: 30%; left: 20%; animation-delay: 4s;"></div>
+        
+        <!-- Chart Icons Floating Around -->
+        <div class="chart-icon" style="animation-delay: 0s;">📊</div>
+        <div class="chart-icon" style="animation-delay: 2s; animation-duration: 18s;">📈</div>
+        <div class="chart-icon" style="animation-delay: 4s; animation-duration: 12s;">📉</div>
+        <div class="chart-icon" style="animation-delay: 6s; animation-duration: 20s;">💹</div>
+        <div class="chart-icon" style="animation-delay: 8s; animation-duration: 16s;">📋</div>
+        <div class="chart-icon" style="animation-delay: 10s; animation-duration: 14s;">🎯</div>
+        <div class="chart-icon" style="animation-delay: 12s; animation-duration: 22s;">💼</div>
+        <div class="chart-icon" style="animation-delay: 14s; animation-duration: 13s;">🔍</div>
+        
+        <!-- Floating Gray Shapes -->
+        <div class="floating-shape" style="width: 60px; height: 60px; border: 2px solid rgba(255, 255, 255, 0.2); border-radius: 50%; top: 30%; right: 20%; animation: moveAcross 20s linear infinite;"></div>
+        <div class="floating-shape" style="width: 40px; height: 40px; background: rgba(255, 255, 255, 0.1); border-radius: 8px; top: 70%; left: 60%; animation: moveAcross 25s linear infinite; animation-delay: 5s;"></div>
+        <div class="floating-shape" style="width: 50px; height: 50px; border: 2px solid rgba(255, 255, 255, 0.15); transform: rotate(45deg); bottom: 40%; right: 30%; animation: moveAcross 30s linear infinite; animation-delay: 10s;"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="intro-container">
+        <div class="intro-content">
+            <p class="greeting">👋 Welcome! I'm</p>
+            
+            <div class="name-container">
+                <h1 class="name">Ngoc Tran</h1>
+                <h2 class="title">Data & Finance Analyst</h2>
+            </div>
+
+            <div class="typewriter-container">
+                <p class="typewriter" id="typewriter-text"></p>
+            </div>
+
+
+            <div class="cta-section">
+                <a href="your-portfolio-animated.html" class="enter-btn">
+                    <span>Enter My Portfolio</span>
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                </a>
+            </div>
+
+            <p class="scroll-hint">Click above to explore my work ✨</p>
+        </div>
+    </div>
+
+    <script>
+        // Custom cursor functionality
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorRing = document.querySelector('.cursor-ring');
+        let mouseX = 0, mouseY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            cursorDot.style.transform = `translate(${mouseX - 4}px, ${mouseY - 4}px)`;
+            cursorRing.style.transform = `translate(${mouseX - 16}px, ${mouseY - 16}px)`;
+        });
+
+        // Enhanced hover effects
+        const interactiveElements = document.querySelectorAll('a');
+        interactiveElements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                cursorRing.style.transform += ' scale(2)';
+                cursorDot.style.transform += ' scale(0.5)';
+                cursorRing.style.borderColor = '#ffffff';
+            });
+            
+            element.addEventListener('mouseleave', () => {
+                cursorRing.style.transform = `translate(${mouseX - 16}px, ${mouseY - 16}px)`;
+                cursorDot.style.transform = `translate(${mouseX - 4}px, ${mouseY - 4}px)`;
+                cursorRing.style.borderColor = 'rgba(255, 255, 255, 0.4)';
+            });
+        });
+
+        // Click particle effects
+        document.addEventListener('click', (e) => {
+            for (let i = 0; i < 8; i++) {
+                const particle = document.createElement('div');
+                particle.style.cssText = `
+                    position: fixed; width: 4px; height: 4px; background: #ffffff;
+                    border-radius: 50%; pointer-events: none; z-index: 9999;
+                    left: ${e.clientX}px; top: ${e.clientY}px;
+                `;
+                document.body.appendChild(particle);
+
+                particle.animate([
+                    { transform: 'scale(0) translate(0, 0)', opacity: 0 },
+                    { transform: `scale(1) translate(${(Math.random() - 0.5) * 100}px, ${(Math.random() - 0.5) * 100}px)`, opacity: 1 },
+                    { transform: `scale(0) translate(${(Math.random() - 0.5) * 200}px, ${(Math.random() - 0.5) * 200}px)`, opacity: 0 }
+                ], {
+                    duration: 1000,
+                    easing: 'ease-out'
+                }).onfinish = () => particle.remove();
+            }
+        });
+
+        // Typewriter effect
+        const typewriterText = document.getElementById('typewriter-text');
+        const messages = [
+            "Transforming data into actionable business insights",
+            "Building financial models that drive decisions",
+            "Creating visualizations that tell compelling stories",
+            "Let's explore my journey together..."
+        ];
+        
+        let messageIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typeSpeed = 60;
+
+        function typeWriter() {
+            const currentMessage = messages[messageIndex];
+            
+            if (isDeleting) {
+                typewriterText.textContent = currentMessage.substring(0, charIndex - 1);
+                charIndex--;
+                typeSpeed = 30;
+            } else {
+                typewriterText.textContent = currentMessage.substring(0, charIndex + 1);
+                charIndex++;
+                typeSpeed = 60;
+            }
+
+            if (!isDeleting && charIndex === currentMessage.length) {
+                typeSpeed = 2000; // Pause at end
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                messageIndex = (messageIndex + 1) % messages.length;
+                typeSpeed = 500; // Pause before next message
+            }
+
+            setTimeout(typeWriter, typeSpeed);
+        }
+
+        // Start typewriter effect after initial animation
+        setTimeout(() => {
+            typeWriter();
+        }, 2000);
+
+        // Enhanced enter button effect
+        const enterBtn = document.querySelector('.enter-btn');
+        enterBtn.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-3px) scale(1.05)';
+        });
+        
+        enterBtn.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+
+        // Add loading transition when entering portfolio
+        enterBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Create loading overlay
+            const overlay = document.createElement('div');
+            overlay.style.cssText = `
+                position: fixed; inset: 0; z-index: 10000;
+                background: linear-gradient(45deg, #141629, #0c0f1e);
+                display: flex; align-items: center; justify-content: center;
+                opacity: 0; transition: opacity 0.5s ease;
+            `;
+            
+            const loader = document.createElement('div');
+            loader.style.cssText = `
+                width: 60px; height: 60px; border: 3px solid rgba(244, 116, 253, 0.3);
+                border-top: 3px solid #f474fd; border-radius: 50%;
+                animation: spin 1s linear infinite;
+            `;
+            
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+            `;
+            document.head.appendChild(style);
+            
+            overlay.appendChild(loader);
+            document.body.appendChild(overlay);
+            
+            // Fade in overlay
+            setTimeout(() => {
+                overlay.style.opacity = '1';
+            }, 10);
+            
+            // Navigate after animation
+            setTimeout(() => {
+                window.location.href = this.href;
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

@@ -1,48 +1,58 @@
 export const EXPERIENCE_SIMPLE = [
   {
-    title: "Data Analyst Intern",
-    org: "Company A",
-    year: "2025",
-    bullets: [
-      "Built XGBoost model (61%+ accuracy); prioritized features with SHAP.",
-      "Automated KPI dashboards in Tableau; cut manual reporting 80%.",
-    ],
-    stack: ["Python", "Tableau", "SQL"],
-  },
-  {
-    title: "Finance Analyst Intern",
-    org: "Company B",
+    title: "Business Analyst",
+    org: "Your Current Company",
     year: "2024",
     bullets: [
-      "Built 3‑statement forecast & scenarios; supported budget reviews.",
-      "Created variance analysis and monthly decks for leadership.",
+      "Developed data-driven solutions that improved operational efficiency by 25%",
+      "Created comprehensive dashboards using Tableau and Power BI for executive reporting",
+      "Led cross-functional teams in implementing analytics frameworks across 3 departments",
     ],
-    stack: ["Excel", "PowerPoint"],
+    stack: ["Python", "SQL", "Tableau", "Power BI"],
   },
   {
-    title: "Research Assistant",
-    org: "University Lab",
-    year: "2024",
-    bullets: [
-      "Cleaned / merged large datasets; reproducible notebooks.",
-      "Designed visualizations for publication‑ready figures.",
-    ],
-    stack: ["Python", "R"],
-  },
-  {
-    title: "Operations Associate",
-    org: "Véry Nice Bracelet",
+    title: "Data Analyst",
+    org: "Previous Company",
     year: "2023",
     bullets: [
-      "Streamlined order & inventory workflows; reduced errors 25%.",
-      "Built revenue dashboard and weekly demand forecast.",
+      "Analyzed customer behavior data to identify trends and opportunities",
+      "Built predictive models that increased customer retention by 15%",
+      "Automated reporting processes, reducing manual work by 40 hours/week",
     ],
-    stack: ["Excel", "Google Sheets"],
+    stack: ["R", "SQL", "Excel", "Tableau"],
+  },
+  {
+    title: "Financial Analyst",
+    org: "Financial Services Firm",
+    year: "2022",
+    bullets: [
+      "Performed financial modeling and forecasting for investment decisions",
+      "Conducted market research and competitive analysis",
+      "Prepared detailed financial reports for senior management",
+    ],
+    stack: ["Excel", "Bloomberg", "SQL", "Python"],
   },
 ];
 
 export const WORK_DETAILED = [
-  { org: "Blackstone → Revantage (example)", year: "2024", summary: "Monte Carlo rent stress‑test in Python; mitigated $1.5M risk.", tech: ["Python","pandas","NumPy","Power BI"] },
-  { org: "Deloitte (example)", year: "2023", summary: "COSO/Basel III gap analysis; cut op‑risk events 20%.", tech: ["SQL","Tableau"] },
-  { org: "Caprae PE (example)", year: "2022", summary: "Diligenced climate‑tech targets; supported 2 term‑sheets.", tech: ["PitchBook","DCF"] },
+  { 
+    org: "Current Company", 
+    year: "2024", 
+    summary: "Leading business intelligence initiatives and developing data-driven strategies for operational excellence.", 
+    tech: ["Python","pandas","NumPy","Tableau","Power BI"] 
+  },
+  { 
+    org: "Previous Company", 
+    year: "2023", 
+    summary: "Specialized in customer analytics and predictive modeling to drive business growth and retention.", 
+    tech: ["R","SQL","Tableau","scikit-learn"] 
+  },
+  { 
+    org: "Financial Services", 
+    year: "2022", 
+    summary: "Focused on financial analysis, market research, and investment decision support through data insights.", 
+    tech: ["Excel","Bloomberg","SQL","Python","VBA"] 
+  },
 ];
+
+
