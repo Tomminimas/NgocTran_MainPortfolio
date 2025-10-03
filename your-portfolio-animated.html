@@ -1142,6 +1142,7 @@
       border-radius:14px; font-weight:700; border:1px solid var(--border);
       transition: all .3s ease; cursor:pointer; position: relative; overflow: hidden;
       text-align: center; min-height: 44px; box-sizing: border-box;
+      text-decoration: none; line-height: 1.2; word-break: keep-all;
     }
     .btn::before {
       content: ''; position: absolute; inset: 0; opacity: 0;
@@ -1450,17 +1451,25 @@
     /* Responsive button text sizing */
     @media (max-width: 900px) {
       .proj .actions{ gap:8px; }
-      .btn{ padding:10px 12px; font-size:0.85rem; }
+      .btn{ padding:10px 12px; font-size:0.85rem; white-space:nowrap; }
+    }
+    
+    @media (max-width: 700px) {
+      .btn{ padding:8px 10px; font-size:0.8rem; white-space:nowrap; }
     }
     
     @media (max-width: 600px) {
       .proj .actions{ gap:6px; flex-direction:column; }
-      .btn{ padding:12px 16px; font-size:0.9rem; width:100%; text-align:center; }
+      .btn{ padding:12px 16px; font-size:0.9rem; width:100%; text-align:center; white-space:normal; }
     }
     
     @media (max-width: 480px) {
       .proj h3{ font-size:1rem; padding:12px; }
       .btn{ padding:10px 14px; font-size:0.8rem; }
+    }
+    
+    @media (max-width: 400px) {
+      .btn{ padding:8px 12px; font-size:0.75rem; }
     }
 
     /* ===================== CONTACT ===================== */
