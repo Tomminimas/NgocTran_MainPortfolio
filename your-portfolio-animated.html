@@ -1485,6 +1485,21 @@
     }
     @media (max-width:1000px){ #contact .contact__container{ grid-template-columns:1fr; } }
 
+    /* Large screen optimizations for Contact section */
+    @media (min-width: 1600px) {
+      #contact .container{ width:min(1400px, 90vw); }
+      #contact .contact__container{ gap:48px; }
+      #contact h2{ font-size: 3rem; margin-bottom: 3rem; }
+      #contact .over{ font-size: 1.2rem; }
+    }
+    
+    @media (min-width: 2000px) {
+      #contact .container{ width:min(1600px, 85vw); }
+      #contact .contact__container{ gap:64px; }
+      #contact h2{ font-size: 3.5rem; margin-bottom: 4rem; }
+      #contact .over{ font-size: 1.4rem; }
+    }
+
     .contact__options{ display:grid; gap:18px; }
     .contact__option.card{
       background: rgba(26,26,26,.92); border:1px solid rgba(255,255,255,.12);
@@ -1500,6 +1515,29 @@
     }
     .contact__form input::placeholder, .contact__form textarea::placeholder{ color:hsla(0,0%,100%,.55); }
     .contact__form textarea{ resize:vertical; min-height:180px; }
+
+    /* Large screen contact elements */
+    @media (min-width: 1600px) {
+      .contact__options{ gap:24px; }
+      .contact__option.card{ padding:28px; border-radius:24px; }
+      .contact__option-icon{ width:36px; height:36px; }
+      .contact__option h4{ font-size: 1.4rem; margin-bottom: 0.8rem; }
+      .contact__option h5{ font-size: 1.1rem; }
+      .contact__form{ gap:20px; }
+      .contact__form input, .contact__form textarea{ padding:16px 20px; font-size: 1.1rem; border-radius:18px; }
+      .contact__form textarea{ min-height:220px; }
+    }
+    
+    @media (min-width: 2000px) {
+      .contact__options{ gap:32px; }
+      .contact__option.card{ padding:36px; border-radius:28px; }
+      .contact__option-icon{ width:44px; height:44px; }
+      .contact__option h4{ font-size: 1.6rem; margin-bottom: 1rem; }
+      .contact__option h5{ font-size: 1.3rem; }
+      .contact__form{ gap:24px; }
+      .contact__form input, .contact__form textarea{ padding:20px 24px; font-size: 1.2rem; border-radius:20px; }
+      .contact__form textarea{ min-height:260px; }
+    }
 
     /* ===================== FOOTER ===================== */
     .site-footer{
