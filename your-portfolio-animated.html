@@ -32,9 +32,9 @@
       --color-gray-light: #6b7280;
       --border: rgba(255,255,255,.12);
       --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --container-width-lg: min(1400px, 85vw);
-      --container-width-md: 86vw;
-      --container-width-sm: 92vw;
+      --container-width-lg: min(1400px, 90vw);
+      --container-width-md: 92vw;
+      --container-width-sm: 95vw;
     }
 
     /* ===================== CURSOR ANIMATIONS ===================== */
@@ -1337,25 +1337,33 @@
 
     /* ===================== PORTFOLIO ===================== */
     .cards-3{
-      display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:28px; margin-top:20px;
+      display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:24px; margin-top:20px;
     }
     
-    /* Large screens (27+ inch monitors) */
-    @media (min-width: 1600px) { 
-      .cards-3{ gap:32px; }
-      .proj h3{ font-size: 1.2rem; }
+    /* Large screen optimizations for Portfolio section */
+    @media (min-width: 1600px) {
+      #portfolio .container{ width: min(1500px, 90vw); }
+      .cards-3{ gap:32px; margin-top:32px; }
       .proj .thumb{ height: 220px; }
+      .proj h3{ font-size: 1.2rem; padding: 24px 24px 18px; }
+      .proj .actions{ padding: 0 24px 24px; }
     }
     
-    /* Extra large screens */
-    @media (min-width: 2000px) { 
-      .cards-3{ gap:40px; }
-      .proj h3{ font-size: 1.3rem; }
+    @media (min-width: 2000px) {
+      #portfolio .container{ width: min(1700px, 85vw); }
+      .cards-3{ gap:40px; margin-top:40px; }
       .proj .thumb{ height: 250px; }
+      .proj h3{ font-size: 1.4rem; padding: 32px 32px 20px; }
+      .proj .actions{ padding: 0 32px 32px; }
+      .btn{ padding: 14px 20px; font-size: 1rem; }
     }
     
-    @media (max-width:1000px){ .cards-3{ grid-template-columns:1fr 1fr; gap:22px; } }
-    @media (max-width:650px){  .cards-3{ grid-template-columns:1fr; gap:18px; } }
+    
+    /* Responsive breakpoints optimized for half-screen viewing */
+    @media (max-width:1200px){ .cards-3{ grid-template-columns:repeat(3, minmax(0,1fr)); gap:20px; } }
+    @media (max-width:900px){ .cards-3{ grid-template-columns:repeat(2, minmax(0,1fr)); gap:18px; } }
+    @media (max-width:600px){ .cards-3{ grid-template-columns:1fr; gap:16px; } }
+    @media (max-width:480px){ .cards-3{ gap:14px; } }
 
     .cards-1{
       display:grid; grid-template-columns:1fr; gap:22px; margin-top:40px; max-width:600px; margin-left:auto; margin-right:auto;
@@ -1423,13 +1431,36 @@
     }
     .proj .thumb.research{ 
       background: url('../uhg-twitter.png') center/cover no-repeat;
+      background-position: center center;
     }
     .proj .thumb.darden{ 
       background: url('../DRI_Foundation_logo_325x215.jpeg') center/cover no-repeat;
     }
     .proj .thumb.realestate{ background:rgba(245,101,101,.8); }
+    .proj .thumb.ncaa{ 
+      background: url('../NCAA_Visualization_Dashboard.pptx.jpg') center/cover no-repeat;
+    }
+    .proj .thumb.h1b{ 
+      background: url('../H1B Visa Applications_Ngoc Tran.pptx.jpg') center/cover no-repeat;
+    }
     .proj h3{ padding:18px; margin:0; }
     .proj .actions{ display:flex; gap:12px; padding:0 18px 18px; align-items:center; justify-content:center; }
+    
+    /* Responsive button text sizing */
+    @media (max-width: 900px) {
+      .proj .actions{ gap:8px; }
+      .btn{ padding:10px 12px; font-size:0.85rem; }
+    }
+    
+    @media (max-width: 600px) {
+      .proj .actions{ gap:6px; flex-direction:column; }
+      .btn{ padding:12px 16px; font-size:0.9rem; width:100%; text-align:center; }
+    }
+    
+    @media (max-width: 480px) {
+      .proj h3{ font-size:1rem; padding:12px; }
+      .btn{ padding:10px 14px; font-size:0.8rem; }
+    }
 
     /* ===================== CONTACT ===================== */
     #contact.section{
@@ -1911,6 +1942,24 @@
           <div class="actions">
             <a class="btn outline" href="https://docs.google.com/spreadsheets/d/1GIQgEG5AtPaJOlOHRe3U2MV67Jc49c6-/edit?usp=sharing&ouid=112234053047260788415&rtpof=true&sd=true" target="_blank">Dashboard</a>
             <a class="btn solid" href="https://drive.google.com/file/d/1uFudn6MG-6i3i5Zt0uFyNymGpYNF0z5R/view?usp=sharing" target="_blank">Report</a>
+          </div>
+        </article>
+
+        <article class="proj card">
+          <div class="thumb ncaa" aria-hidden="true"></div>
+          <h3>Visualization based on NCAA Analytics Challenge</h3>
+          <div class="actions">
+            <a class="btn outline" href="https://docs.google.com/presentation/d/1Mu2bhmwb_yyidVmLCAN4WPGONtu2b0xX/edit?usp=sharing&ouid=110076167961361753835&rtpof=true&sd=true" target="_blank">Dashboard</a>
+            <a class="btn solid" href="https://drive.google.com/file/d/1-phxk1NMZDHAG3YoAsDBmBzgMuDq6kZK/view?usp=sharing" target="_blank">Presentation</a>
+          </div>
+        </article>
+
+        <article class="proj card">
+          <div class="thumb h1b" aria-hidden="true"></div>
+          <h3>Visualization on H1B Applications</h3>
+          <div class="actions">
+            <a class="btn outline" href="https://docs.google.com/presentation/d/1GSH5bSKzsp9ClhHjFlz6WkxgmX08ihWG/edit?usp=sharing&ouid=110076167961361753835&rtpof=true&sd=true" target="_blank">Dashboard</a>
+            <a class="btn solid" href="https://drive.google.com/file/d/1TIMAPQPIZJ-Q5H3YpX9tIn1pqzfwLTK2/view?usp=sharing" target="_blank">Report</a>
           </div>
         </article>
       </div>
