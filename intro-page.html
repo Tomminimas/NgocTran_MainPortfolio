@@ -189,6 +189,21 @@
             background-clip: text; margin-bottom: 0.5rem;
             animation: scaleIn 1s ease-out 0.8s both;
         }
+        
+        /* Large screen optimizations */
+        @media (min-width: 1600px) {
+            .name { font-size: clamp(4rem, 8vw, 8rem); }
+            .title { font-size: 2rem; }
+            .typewriter { font-size: 1.3rem; }
+            .intro-content { max-width: 1000px; }
+        }
+        
+        @media (min-width: 2000px) {
+            .name { font-size: clamp(5rem, 8vw, 10rem); }
+            .title { font-size: 2.5rem; }
+            .typewriter { font-size: 1.5rem; }
+            .intro-content { max-width: 1200px; }
+        }
 
         .title {
             font-size: 1.5rem; color: var(--color-primary-variant-mid);

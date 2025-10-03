@@ -32,7 +32,7 @@
       --color-gray-light: #6b7280;
       --border: rgba(255,255,255,.12);
       --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --container-width-lg: min(1200px, 75vw);
+      --container-width-lg: min(1400px, 85vw);
       --container-width-md: 86vw;
       --container-width-sm: 92vw;
     }
@@ -783,6 +783,21 @@
       margin: 0 auto;
       position: relative;
     }
+    
+    /* Large screen optimizations for Timeline */
+    @media (min-width: 1600px) {
+      .timeline { max-width: 1000px; }
+      .timeline-content{ padding:28px; font-size:1.1rem; }
+      .timeline-content h3{ font-size:1.3rem; }
+      .timeline-year{ padding:12px 20px; font-size:1rem; }
+    }
+    
+    @media (min-width: 2000px) {
+      .timeline { max-width: 1200px; }
+      .timeline-content{ padding:36px; font-size:1.2rem; }
+      .timeline-content h3{ font-size:1.5rem; }
+      .timeline-year{ padding:16px 24px; font-size:1.1rem; }
+    }
 
     .timeline-item {
       display: flex;
@@ -1098,6 +1113,19 @@
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-clip: text;
     }
+    
+    /* Large screen typography */
+    @media (min-width: 1600px) {
+      .display{ font-size: 68px; }
+      h2{ font-size: 2.5rem; }
+      .section{ padding: 120px 0; }
+    }
+    
+    @media (min-width: 2000px) {
+      .display{ font-size: 80px; }
+      h2{ font-size: 3rem; }
+      .section{ padding: 140px 0; }
+    }
     .subtitle{ 
       color:var(--color-medium); margin:0 0 16px;
       animation: fadeInUp 0.6s ease-out 1s both;
@@ -1208,6 +1236,27 @@
       width:min(800px,100%); margin-inline:auto; background:rgba(26,26,26,.92);
       border:1px solid rgba(255,255,255,.10); border-radius:22px; padding:28px;
     }
+    
+    /* Large screen optimizations for About section */
+    @media (min-width: 1600px) {
+      #about .container{ width: min(1300px, 90vw); }
+      #about .about-text.card{ 
+        width:min(1000px,100%); padding:40px; font-size:1.1rem;
+      }
+      #about .about-text h2{ font-size: 2.5rem; }
+      #about .about-cards{ gap:24px; }
+      #about .card.small{ padding:24px; }
+    }
+    
+    @media (min-width: 2000px) {
+      #about .container{ width: min(1500px, 85vw); }
+      #about .about-text.card{ 
+        width:min(1200px,100%); padding:50px; font-size:1.2rem;
+      }
+      #about .about-text h2{ font-size: 3rem; }
+      #about .about-cards{ gap:32px; }
+      #about .card.small{ padding:32px; }
+    }
     #about .about-text .over{ letter-spacing:.12em; text-transform:uppercase; font-size:12px; opacity:.8; }
     #about .about-text h2{ margin:8px 0 10px; }
     #about .about-text p{ margin:0 0 16px; color:var(--color-medium); }
@@ -1233,6 +1282,19 @@
       display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:24px; margin-top:18px;
     }
     @media (max-width:900px){ .skills-grid{ grid-template-columns:1fr; } }
+    
+    /* Large screen optimizations for Experience section */
+    @media (min-width: 1600px) {
+      .skills-grid{ gap:32px; margin-top:24px; }
+      .card.pill{ padding:36px; font-size:1.1rem; }
+      .card.pill h3{ font-size:1.4rem; }
+    }
+    
+    @media (min-width: 2000px) {
+      .skills-grid{ gap:40px; margin-top:32px; }
+      .card.pill{ padding:48px; font-size:1.2rem; }
+      .card.pill h3{ font-size:1.6rem; }
+    }
 
     .card.pill{ padding:26px; border-radius:24px; }
     .card.pill h3{ margin:0 0 8px; }
@@ -1248,6 +1310,21 @@
       transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease, background .3s ease;
       will-change: transform, box-shadow;
     }
+    
+    /* Large screen optimizations for Work & Awards sections */
+    @media (min-width: 1600px) {
+      .work-card, .award-card{
+        max-width:1100px; padding:48px; margin:36px auto; font-size:1.1rem;
+      }
+      .work-card h3, .award-card h3{ font-size:1.5rem; }
+    }
+    
+    @media (min-width: 2000px) {
+      .work-card, .award-card{
+        max-width:1300px; padding:60px; margin:48px auto; font-size:1.2rem;
+      }
+      .work-card h3, .award-card h3{ font-size:1.8rem; }
+    }
     .work-card:hover, .award-card:hover{
       transform: translateY(-8px) scale(1.01);
       box-shadow: 0 18px 38px rgba(0,0,0,.45), 0 0 22px rgba(255,255,255,.25);
@@ -1260,10 +1337,25 @@
 
     /* ===================== PORTFOLIO ===================== */
     .cards-3{
-      display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:22px; margin-top:20px;
+      display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:28px; margin-top:20px;
     }
-    @media (max-width:1000px){ .cards-3{ grid-template-columns:1fr 1fr; } }
-    @media (max-width:650px){  .cards-3{ grid-template-columns:1fr; } }
+    
+    /* Large screens (27+ inch monitors) */
+    @media (min-width: 1600px) { 
+      .cards-3{ gap:32px; }
+      .proj h3{ font-size: 1.2rem; }
+      .proj .thumb{ height: 220px; }
+    }
+    
+    /* Extra large screens */
+    @media (min-width: 2000px) { 
+      .cards-3{ gap:40px; }
+      .proj h3{ font-size: 1.3rem; }
+      .proj .thumb{ height: 250px; }
+    }
+    
+    @media (max-width:1000px){ .cards-3{ grid-template-columns:1fr 1fr; gap:22px; } }
+    @media (max-width:650px){  .cards-3{ grid-template-columns:1fr; gap:18px; } }
 
     .cards-1{
       display:grid; grid-template-columns:1fr; gap:22px; margin-top:40px; max-width:600px; margin-left:auto; margin-right:auto;
