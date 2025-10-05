@@ -100,7 +100,7 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 1.7 }}
                 className="flex gap-6 justify-center"
               >
-                {INFO.socials.map((social, index) => (
+                {INFO.socials.map((social) => (
                   <motion.a
                     key={social.label}
                     href={social.href}
@@ -248,9 +248,9 @@ export default function Home() {
               className="space-y-6"
             >
               <div>
-                <h3 className="text-xl font-semibold text-white mb-4">Let's Connect</h3>
+                <h3 className="text-xl font-semibold text-white mb-4">Let&apos;s Connect</h3>
                 <p className="text-gray-300 mb-6">
-                  I'm always interested in discussing data analytics opportunities, 
+                  I&apos;m always interested in discussing data analytics opportunities, 
                   collaborative projects, or sharing insights about business intelligence.
                 </p>
               </div>
